@@ -1,0 +1,19 @@
+[package]
+name = "openvoice4u"
+version = "0.1.2"
+description = "Local voice cloning, made simple."
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = "2"
+tauri-plugin-single-instance = "2"
+serde_json = "1"
+
+[profile.release]
+strip = true
+lto = true
+codegen-units = 1

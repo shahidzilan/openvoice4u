@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "OpenVoice4U",
+  "version": "0.1.2",
+  "identifier": "org.openvoice4u.desktop",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "OpenVoice4U",
+        "width": 1160,
+        "height": 800,
+        "minWidth": 860,
+        "minHeight": 640,
+        "backgroundColor": "#101214"
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self' blob: data:; connect-src ipc: http://ipc.localhost; object-src 'none'; frame-src 'none'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "nsis"
+    ],
+    "shortDescription": "Local voice cloning, made simple.",
+    "category": "Music",
+    "resources": {
+      "../release-runtime/": "runtime/"
+    },
+    "windows": {
+      "nsis": {
+        "installMode": "currentUser",
+        "compression": "zlib"
+      }
+    }
+  }
+}
